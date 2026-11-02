@@ -1,16 +1,74 @@
-# React + Vite
+# Paradise Nursery - Online Plant Shopping Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+Paradise Nursery is a React-based online plant shopping application that allows users to explore and purchase a variety of indoor and outdoor plants.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The application provides a user-friendly shopping experience where customers can browse plants, view product details, add plants to their shopping cart, and manage their selected items.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Attractive Paradise Nursery landing page.
+- Company information and introduction.
+- Plant listing organized into categories.
+- Product images, names, descriptions, and prices.
+- Add-to-cart functionality.
+- Dynamic shopping cart item count.
+- Increase and decrease product quantities.
+- Remove products from the shopping cart.
+- Automatic cart total calculation.
+- Continue shopping and checkout options.
 
-## Expanding the Oxlint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- React.js
+- Vite
+- JavaScript
+- Redux Toolkit
+- React Redux
+- React Router DOM
+- CSS
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AboutUs.jsx
+│   ├── Navbar.jsx
+│   ├── ProductList.jsx
+│   └── CartItem.jsx
+├── redux/
+│   ├── CartSlice.jsx
+│   └── store.js
+├── data/
+│   └── plants.js
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+```
+
+## Getting Started
+
+Clone the repository:
+
+```
+git clone https://github.com/mKavyaGI/frontend-project.git
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+Start the development server:
+
+```
+npm run dev
+```
+
+## Project Name
+
+**Paradise Nursery - Online Plant Shopping Application**
