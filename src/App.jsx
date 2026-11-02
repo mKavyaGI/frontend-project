@@ -1,13 +1,12 @@
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import AboutUs from './components/AboutUs'
 import CartItem from './components/CartItem'
-import Navbar from './components/Navbar'
 import ProductList from './components/ProductList'
 import './App.css'
 
 function Home() {
   const navigate = useNavigate()
+
   return (
     <>
       <div className="landing-page">
@@ -29,63 +28,13 @@ function Home() {
   )
 }
 
-function Cart() {
-  const navigate = useNavigate()
-  const items = useSelector((state) => state.cart.items)
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
-
-  if (items.length === 0) {
-    return (
-      <main className="cart-page empty-cart">
-        <h1>Your cart is empty</h1>
-        <p>Choose a plant to start building your indoor garden.</p>
-        <button type="button" className="primary-button" onClick={() => navigate('/plants')}>
-          Continue Shopping
-        </button>
-      </main>
-    )
-  }
-
-  return (
-    <main className="cart-page">
-      <div className="cart-heading">
-        <p className="eyebrow">Your selections</p>
-        <h1>Shopping Cart</h1>
-      </div>
-      <div className="cart-items">{items.map((item) => <CartItem item={item} key={item.id} />)}</div>
-      <aside className="cart-summary">
-        <span>Total</span>
-        <strong>${total.toFixed(2)}</strong>
-        <div className="cart-actions">
-          <button type="button" className="secondary-button" onClick={() => navigate('/plants')}>
-            Continue Shopping
-          </button>
-          <button
-            type="button"
-            className="primary-button"
-            onClick={() => {
-              window.alert('Checkout Coming Soon!')
-            }}
-          >
-            Checkout
-          </button>
-        </div>
-      </aside>
-    </main>
-  )
-}
-
-function AppLayout({ children }) {
-  return <><Navbar />{children}</>
-}
-
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/plants" element={<AppLayout><ProductList /></AppLayout>} />
-        <Route path="/cart" element={<AppLayout><Cart /></AppLayout>} />
+        <Route path="/plants" element={<ProductList />} />
+        <Route path="/cart" element={<CartItem />} />
       </Routes>
     </BrowserRouter>
   )
