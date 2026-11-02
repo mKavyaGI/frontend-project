@@ -1,10 +1,9 @@
 import { BrowserRouter, Route, Routes, useNavigate } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import AboutUs from './components/AboutUs'
 import CartItem from './components/CartItem'
 import Navbar from './components/Navbar'
 import ProductList from './components/ProductList'
-import { clearCart } from './redux/CartSlice'
 import './App.css'
 
 function Home() {
@@ -32,7 +31,6 @@ function Home() {
 
 function Cart() {
   const navigate = useNavigate()
-  const dispatch = useDispatch()
   const items = useSelector((state) => state.cart.items)
   const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0)
 
@@ -66,8 +64,7 @@ function Cart() {
             type="button"
             className="primary-button"
             onClick={() => {
-              dispatch(clearCart())
-              window.alert('Thank you for shopping with Paradise Nursery!')
+              window.alert('Checkout Coming Soon!')
             }}
           >
             Checkout

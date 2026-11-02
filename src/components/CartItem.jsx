@@ -9,7 +9,7 @@ function CartItem({ item }) {
       <img src={item.image} alt={item.name} />
       <div className="cart-item-details">
         <h2>{item.name}</h2>
-        <p>${item.price.toFixed(2)} each</p>
+        <p>Unit Price: ${item.price.toFixed(2)}</p>
       </div>
       <div className="quantity-controls" aria-label={`Quantity for ${item.name}`}>
         <button type="button" onClick={() => dispatch(decreaseQuantity(item.id))}>-</button>
@@ -18,7 +18,7 @@ function CartItem({ item }) {
       </div>
       <strong>${(item.price * item.quantity).toFixed(2)}</strong>
       <button type="button" className="remove-button" onClick={() => dispatch(removeFromCart(item.id))}>
-        Remove
+        Delete
       </button>
     </article>
   )

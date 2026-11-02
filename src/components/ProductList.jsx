@@ -22,14 +22,20 @@ function ProductList() {
               const inCart = items.some((item) => item.id === plant.id)
               return (
                 <article className="product-card" key={plant.id}>
-                  <img src={plant.image} alt={plant.name} />
+                  <img
+                    src={plant.image}
+                    alt={plant.name}
+                    onError={(event) => {
+                      event.currentTarget.src = '/images/landing-bg.jpg'
+                    }}
+                  />
                   <div className="product-card-content">
                     <h3>{plant.name}</h3>
                     <p>{plant.description}</p>
                     <div className="product-card-footer">
                       <strong>${plant.price.toFixed(2)}</strong>
                       <button type="button" disabled={inCart} onClick={() => dispatch(addToCart(plant))}>
-                        {inCart ? 'In Cart' : 'Add to Cart'}
+                        {inCart ? 'Added to Cart' : 'Add to Cart'}
                       </button>
                     </div>
                   </div>
